@@ -1,0 +1,19 @@
+.app-div {
+    margin-left: 18px;
+    margin-right: 18px;
+    align-items: center;
+
+  }
+.container {
+  width:29%;
+  height:150px;
+  background-color: antiquewhite;
+  border-radius: 15px;
+  text-align: center;
+  align-self: center;
+  align-items: center;
+  display: inline-block;
+margin: 25px;
+padding-top: 5%;
+  
+}

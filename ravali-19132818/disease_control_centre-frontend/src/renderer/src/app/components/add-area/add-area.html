@@ -1,0 +1,125 @@
+<div class="container">
+    <a mat-list-item routerLink="/3">
+        <button mat-raised-button color="primary" style="float:right; margin-right:15px; margin-top: 10px;">Staff Page
+            ></button>
+
+    </a>
+    <a mat-list-item routerLink="/dash">
+
+        <button mat-raised-button color="primary" style="float:right; margin-right:15px; margin-top: 10px;">Dashboard
+            ></button>
+    </a>
+    <div class="staffListContainer">
+        <div *ngIf="areaList&&areaList.length">
+            <div *ngFor="let each of areaList;let k = index;" class="listContainer">
+                <button mat-raised-button color="warn" style="float:right; margin-right:15px; margin-top: 10px;"
+                (click)="removeArea(each._id, k)">Delete</button>
+                <span class="details"> Name: &nbsp;&nbsp;{{each.name}} </span><br>
+                <span class="details"> Latitude: &nbsp;&nbsp;{{each.lat}} </span><br>
+                <span class="details"> Longitude: &nbsp;&nbsp;{{each.long}} </span><br>
+                <span class="details"> Area: &nbsp;&nbsp;{{each.areaSqKm}} </span><br>
+                <span class="details"> Population: &nbsp;&nbsp;{{each.population}} </span>
+               
+            </div>
+           
+
+        </div>
+        <div *ngIf="!areaList || areaList.length ==0" style="align-items: center;text-align: center;">
+            <h4>No Data Found!</h4>
+
+        </div>
+    </div>
+    <div class="addStaffContainer">
+        <div class="toast" [hidden]="!showToast">
+            {{toastMessage}}
+        </div>
+        <p class="inputField">
+            <mat-form-field appearance="legacy" style="width: 80%;">
+                <mat-label>Area Name</mat-label>
+                <input matInput placeholder="Area Name" [(ngModel)]="areaName">
+            </mat-form-field>
+        </p>
+        <p class="inputField">
+            <mat-form-field appearance="legacy" style="width: 80%;">
+                <mat-label>Latitude</mat-label>
+                <input matInput placeholder="Latitude" type="number" [(ngModel)]="latitude">
+            </mat-form-field>
+        </p>
+        <p class="inputField">
+
+            <mat-form-field appearance="legacy" style="width: 80%;">
+                <mat-label>Longitude</mat-label>
+                <input matInput placeholder="Longitude" [(ngModel)]="longitude" type="number">
+            </mat-form-field>
+        </p>
+        <p class="inputField">
+
+            <mat-form-field appearance="legacy" style="width: 80%;">
+                <mat-label>Area Sq.Km.</mat-label>
+                <input matInput placeholder="" type="number" [(ngModel)]="area">
+            </mat-form-field>
+        </p>
+        <p class="inputField">
+
+            <mat-form-field appearance="legacy" style="width: 80%;">
+                <mat-label>Population </mat-label>
+                <input matInput placeholder="" type="numeric" [(ngModel)]="population">
+            </mat-form-field>
+        </p>
+        <div style="width: 100%; padding: 10px; margin-bottom: 20px;">
+            <button mat-raised-button color="primary" style="float:right; margin-right:15px;" (click)="addSubArea()">Add
+                Sub Areas</button>
+            <button mat-raised-button color="primary" style="float:right; margin-right:15px;"
+                (click)="saveArea()">Save</button>
+            <button mat-raised-button color="primary" style="float:right; margin-right:15px;"
+                (click)="clear()">Clear</button>
+        </div>
+        <div *ngIf="subAreas && subAreas.length">
+            <div class="addSubArea" *ngFor="let sub of  subAreas">
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 80%;">
+                        <mat-label>Area Name</mat-label>
+                        <input matInput placeholder="Area Name" [(ngModel)]="sub.subAreaName">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 80%;">
+                        <mat-label>Latitude</mat-label>
+                        <input matInput placeholder="Latitude" type="number" [(ngModel)]="sub.subLatitude">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+
+                    <mat-form-field appearance="legacy" style="width: 80%;">
+                        <mat-label>Longitude</mat-label>
+                        <input matInput placeholder="Longitude" [(ngModel)]="sub.subLongitude" type="number">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+
+                    <mat-form-field appearance="legacy" style="width: 80%;">
+                        <mat-label>Area Sq.Km.</mat-label>
+                        <input matInput placeholder="" type="number" [(ngModel)]="sub.sqkm">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+
+                    <mat-form-field appearance="legacy" style="width: 80%;">
+                        <mat-label>Population </mat-label>
+                        <input matInput placeholder="" type="numeric" [(ngModel)]="sub.subPopulation">
+                    </mat-form-field>
+                </p>
+
+
+
+            </div>
+            <div>
+                <br>
+            </div>
+            <button mat-raised-button color="primary" style="float:right; margin-right:15px;"
+                (click)="saveArea()">Save</button>
+
+        </div>
+    </div>
+
+</div>

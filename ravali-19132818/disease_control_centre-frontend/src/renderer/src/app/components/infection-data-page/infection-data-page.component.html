@@ -1,0 +1,110 @@
+<!-- <div class="container">
+    <div class="staffListContainer">
+        <div *ngIf="areaList&&areaList.length">
+            <div *ngFor="let each of areaList" [ngClass]="selected == each ? 'listContainer-selected' : 'listContainer'"
+                (click)="getSubAreas(each)">
+                <span class="details"> Name: &nbsp;&nbsp;{{each.name}} </span><br>
+                <span class="details"> Latitude: &nbsp;&nbsp;{{each.lat}} </span><br>
+                <span class="details"> Longitude: &nbsp;&nbsp;{{each.long}} </span><br>
+                <span class="details"> Area: &nbsp;&nbsp;{{each.areaSqKm}} </span><br>
+                <span class="details"> Population: &nbsp;&nbsp;{{each.population}} </span><br>
+            </div>
+        </div>
+        <div *ngIf="!areaList || areaList.length ==0" style="align-items: center;text-align: center;">
+            <h4>No Data Found!</h4>
+
+        </div>
+    </div>
+    <div class="subAreaContainer" *ngIf="staffType != 'tc'">
+        <div *ngIf="subAreaList && subAreaList.length">
+            <div *ngFor="let each of subAreaList" class="listContainer" (click)="setSubArea(each)">
+                <button *ngIf="!each.infected" mat-raised-button color="primary" style="float:right; margin-right:15px;"
+                    (click)="setInfected(each,true)">Mark as Infected</button>
+                <button *ngIf="each.infected" mat-raised-button color="warn"
+                    style="float:right; margin-right:15px;">Marked as Infected &#10004;</button>
+
+                <span class="details"> Name: &nbsp;&nbsp;{{each.name}} </span><br>
+                <span class="details"> Latitude: &nbsp;&nbsp;{{each.lat}} </span><br>
+                <span class="details"> Longitude: &nbsp;&nbsp;{{each.long}} </span><br>
+                <span class="details"> Area: &nbsp;&nbsp;{{each.areaSqKm}} </span><br>
+                <span class="details"> Population: &nbsp;&nbsp;{{each.population}} </span><br>
+
+            </div>
+        </div>
+
+        <div *ngIf="!subAreaList || subAreaList.length ==0" style="align-items: center;text-align: center;">
+            <h4>No Data Found!</h4>
+
+        </div>
+    </div>
+    <div class="subAreaContainerpannel" *ngIf="staffType == 'tc'">
+        <div *ngIf="subAreaList && subAreaList.length">
+            <mat-accordion  *ngFor="let each of subAreaList" class="listContainerPannel" (click)="setSubArea(each)">
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{each.name}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Lat: {{each.lat}} , Long: {{each.long}} , Area : {{each.areaSqKm}}, population :{{each.population}}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                 
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 50%;">
+                        <mat-label>Positive</mat-label>
+                        <input matInput placeholder="" type="number" [(ngModel)]="positives">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 50%;">
+                        <mat-label>Negative</mat-label>
+                        <input matInput placeholder="" type="number" [(ngModel)]="negatives">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 50%;">
+                        <mat-label>Inconclusive Results</mat-label>
+                        <input matInput placeholder="" type="email" [(ngModel)]="incResults">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 50%;">
+                        <mat-label>Suspected Infections</mat-label>
+                        <input matInput placeholder="" type="email" [(ngModel)]="suspected">
+                    </mat-form-field>
+                </p>  
+                  <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 50%;">
+                        <mat-label>In Treatment</mat-label>
+                        <input matInput placeholder="" type="email" [(ngModel)]="inTreatment">
+                    </mat-form-field>
+                </p>
+                
+
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 50%;">
+                        <mat-label>Vaccination of 1st dose</mat-label>
+                        <input matInput placeholder="" type="email" [(ngModel)]="firstDose">
+                    </mat-form-field>
+                </p>
+                <p class="inputField">
+                    <mat-form-field appearance="legacy" style="width: 50%;">
+                        <mat-label>Vaccination of 2nd dose</mat-label>
+                        <input matInput placeholder="" type="email" [(ngModel)]="secondDose">
+                    </mat-form-field>
+                </p>
+                <button  mat-raised-button color="primary" style="float:right; margin-right:15px;"
+                (click)="uploadData()">Update</button>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+
+        <div *ngIf="!subAreaList || subAreaList.length ==0" style="align-items: center;text-align: center;">
+            <h4>No Data Found!</h4>
+
+        </div>
+    </div>
+
+</div> -->

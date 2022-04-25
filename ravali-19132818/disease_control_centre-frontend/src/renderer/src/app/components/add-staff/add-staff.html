@@ -1,0 +1,72 @@
+<div class="container">
+  <a mat-list-item routerLink="/4">
+    <button mat-raised-button color="primary" style="float:right; margin-right:15px; margin-top: 10px;">Area and Sub
+      Areas ></button>
+
+  </a>
+  <a mat-list-item routerLink="/dash">
+
+    <button mat-raised-button color="primary" style="float:right; margin-right:15px; margin-top: 10px;">Dashboard
+      ></button>
+  </a>
+  <div class="staffListContainer">
+    <div *ngIf="staffList && staffList.length">
+      <div *ngFor="let staff of staffList; let i = index"
+        style="width: 95%; background-color: antiquewhite;border-radius: 15px; max-height: 150px; margin: 5px; padding: 5px;">
+        <button mat-raised-button color="warn" style="float:right; margin-right:15px; margin-top: 10px;"
+        (click)="removeStaff(staff._id, i)">Delete</button>
+      
+        <span class="details"> Name: &nbsp;&nbsp;{{staff.staffName}} </span><br>
+        <span class="details"> Staff type: &nbsp;&nbsp;{{staff.staffType}} </span><br>
+        <span class="details"> Email: &nbsp;&nbsp;{{staff.email}} </span>
+       
+
+
+      </div>
+    </div>
+    <div *ngIf="!staffList || staffList.length ==0" style="align-items: center;text-align: center;">
+      <h4>No Data Found!</h4>
+
+    </div>
+  </div>
+  <div class="addStaffContainer">
+    <div class="toast" [hidden]="!showToast">
+      {{toastMessage}}
+    </div>
+    <p class="inputField">
+      <mat-form-field appearance="legacy" style="width: 100%;">
+        <mat-label>Staff Name</mat-label>
+        <input matInput placeholder="Staff Name" [(ngModel)]="staffName">
+      </mat-form-field>
+    </p>
+    <p class="inputField">
+      <mat-form-field appearance="legacy" style="width: 100%;">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="E-mail" type="email" [(ngModel)]="staffEmail">
+      </mat-form-field>
+    </p>
+    <p class="inputField">
+
+
+      <mat-form-field appearance="legacy" style="width: 100%;">
+        <mat-label>Staff Type</mat-label>
+        <select matNativeControl [(ngModel)]="staffType">
+          <option value="Admin">Admin</option>
+          <option value="Staff">Staff</option>
+          <option value="tc">TC Staff</option>
+
+        </select>
+      </mat-form-field>
+    </p>
+    <p class="inputField">
+
+      <mat-form-field appearance="legacy" style="width: 100%;">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" [(ngModel)]="password">
+      </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" style="float:right; margin-right:15px;"
+      (click)="saveStaff()">Save</button>
+    <button mat-raised-button color="warn" style="float:right; margin-right:15px;" (click)="clear()">Clear</button>
+  </div>
+</div>
